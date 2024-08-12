@@ -1,0 +1,45 @@
+// Define the HelloWorld class that contains the in-order traversal logic
+class HelloWorld {
+    
+    // Method to perform in-order traversal of the binary tree
+    public void InOrderTraversal(Node root) {
+        if (root == null) {
+            return;  // Base case: If the node is null, do nothing
+        }
+        
+        InOrderTraversal(root.left);  // Recursively visit the left subtree
+        System.out.print(root.data + " ");  // Print the data of the current node
+        InOrderTraversal(root.right);  // Recursively visit the right subtree
+    }
+    
+    // Main method to create the binary tree and perform in-order traversal
+    public static void main(String[] args) {
+        // Create nodes and build the binary tree structure
+        Node root = new Node(30);        // Root node
+        root.left = new Node(20);        // Left child of root
+        root.right = new Node(35);       // Right child of root
+        root.left.left = new Node(10);   // Left child of node 20
+        root.left.right = new Node(25);  // Right child of node 20
+        root.right.left = new Node(35);  // Left child of node 35
+        
+        // Create an instance of HelloWorld
+        HelloWorld hw = new HelloWorld();
+        // Perform in-order traversal and print the nodes' data
+        hw.InOrderTraversal(root);
+    }  
+}
+
+
+// Define the Node class to represent a node in a binary tree
+class Node {
+    int data;         // Data stored in the node
+    Node left;        // Reference to the left child node
+    Node right;       // Reference to the right child node
+    
+    // Constructor to initialize a node with data and null children
+    public Node(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
